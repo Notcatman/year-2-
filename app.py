@@ -9,8 +9,13 @@ class Library:
         self.books = []
 
     def add_book(self, book):
+        for n in self.books:
+            if n.title == book.title and n.author == book.author and n.year == book.year:
+                print(f'The book "{book.title}" is already in library')
+                return
         self.books.append(book)
         print(f'Book "{book.title}" was added.')
+
 
     def remove_book(self, title):
         for book in self.books:
@@ -32,6 +37,7 @@ book3 = Book("The Master and Margarita", "Mikhail Bulgakov", 1928)
 library.add_book(book1)
 library.add_book(book2)
 library.add_book(book3)
+library.add_book(book4)
 library.list_books()
 library.remove_book('It')
 library.list_books()
